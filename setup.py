@@ -1,6 +1,6 @@
 from setuptools import setup
 
-setup(name='masheen',
+setup(name='Masheen',
       version='0.1',
       description='A Masheen for brainfuck.',
       url='http://github.com/micha2718l/Masheen',
