@@ -30,17 +30,16 @@ class Masheen():
             return
         run_iteration = 0
         while True:
+            if steps <= 0:
+                self.out_code = '0 steps input'
+                break
             if self.pointCode >= len(self.dataCode):
                 self.out_of_code = True
                 self.out_code = 'out of code'
                 break
-            if steps:
-                if steps <= 0:
-                    self.out_code = '0 steps input'
-                    break
-                if run_iteration >= steps:
-                    self.out_code = 'reached run max iterations'
-                    break
+            if steps and run_iteration >= steps:
+                self.out_code = 'reached run max iterations'
+                break
             if not steps and self.iteration >= self.maxStep:
                 self.out_code = 'reached global max iterations'
                 break
