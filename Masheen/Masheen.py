@@ -1,5 +1,5 @@
 class Masheen():
-    validCommands = '+-><[].,'
+    validCommands = '+-><[].,#'
     
     def __init__(self, prog, dataIn=[0], dataN=10, debuggering=False):
         self.maxValue = 256
@@ -23,6 +23,7 @@ class Masheen():
         self.out_of_code = False
         self.strict_r_brace = True
         self.debuggering = debuggering
+        self.debugs = []
         if self.debuggering:
             print(self.dataCode)
     def run(self, steps=None):
@@ -30,7 +31,7 @@ class Masheen():
             return
         run_iteration = 0
         while True:
-            if steps <= 0:
+            if steps and steps <= 0:
                 self.out_code = '0 steps input'
                 break
             if self.pointCode >= len(self.dataCode):
@@ -97,6 +98,8 @@ class Masheen():
                 self.dataProg[self.pointData] = self.dataIn[self.pointIn]
                 self.pointIn += 1
                 self.pointIn = self.pointIn % len(self.dataIn)
+            elif self.dataCode[self.pointCode] == '#':
+                self.debugs.append(self.pointCode)
             
             self.pointCode +=1
             self.pointData = self.pointData % self.dataN
