@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(name='Masheen',
-      version='0.3',
+      version='0.31',
       description='A Masheen for brainfuck.',
       url='http://github.com/micha2718l/Masheen',
       author='micha2718l',
